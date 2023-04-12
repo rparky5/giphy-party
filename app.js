@@ -3,6 +3,20 @@ const BASE_URL = "http://api.giphy.com/v1"
 const API_KEY = "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym"
 const container = $("#gifContainer");
 
+class GiphyAPI {
+    constructor(api_key){
+        this.api_key = api_key;
+    }
+
+    async search(term){
+        return await axios.get(BASE_URL, {params: {api_key: this.api_key, q: term}})
+    }
+
+    async getGif(){
+        
+    }
+}
+
 /** takes in user input and gets a gif URL based on the input
  * and appends the gif to the DOM */
 async function handleClick(evt){
